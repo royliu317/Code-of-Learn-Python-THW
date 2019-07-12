@@ -1,5 +1,5 @@
 tabby_cat = "\tI'm tabbed in."
-persian_cat = "I'm split\non a line." #转义字符跟后面内容间不要有空格，否则打印时会多出该空格
+persian_cat = "I'm split\non a line." 
 backslash_cat = "I'm \\ a \\ cat."
 
 fat_cat = """

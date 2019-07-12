@@ -1,16 +1,15 @@
-# 打开文件
 fo = open("ex20_sample.txt", "r+")
-print ("文件名为: ", fo.name)
+print ("File name: ", fo.name)
 
 line = fo.readline()
-print ("读取的数据为: %s" %(line))
+print ("The date loaded: %s" %(line))
 
-# 倒带，即将文件指针重新设置回开头
+# rewind sets the pointer back to the beginning
 fo.seek(0, 0)
 line = fo.readline()
-print (f"读取的数据为: {line}") #打印第一行
+print (f"The date loaded: {line}") 
 
 line = fo.readline()
-print (f"读取的数据为: {line}") #打印第二行
+print (f"The date loaded: {line}") 
 
 fo.close()

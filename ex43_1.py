@@ -4,11 +4,11 @@ from textwrap import dedent
 
 
 class Scene(object):     
-                        # 定义该类时，未使用初始化函数 __init__ ，因为实例化该类时没有进行初始化的必要
+                       
     def enter(self):
         print("This scene is not yet configured.")
         print("Subclass it and implement enter().")
-        exit(1)         # exit(0)：无错误退出；exit(1)：有错误退出
+        exit(1)         
 
 
 class Engine(object):
@@ -17,20 +17,20 @@ class Engine(object):
         self.scene_map = scene_map
 
     def play(self):
-        current_scene = self.scene_map.opening_scene()     # 6.play()函数会调用scene_map属性(即Map类的a_map对象)的opening_scene()函数
-        print('current_scene1= ', current_scene)           # 13.将opening_scene()函数返回的CentralCorridor类的val2对象，赋给current_scene1变量并打印(即val1, val2, current_scene代表同一对象)
-        last_scene = self.scene_map.next_scene('finished') # 14.调用scene_map属性(即Map类的a_map对象)的next_scene()函数，并传入参数finished
-        print('last_scene= ', last_scene)                  # 15.next_scene()函数会实例化Finished()函数并返回val1对象，赋给last_scene变量并打印(即val1、last_scene代表同一对象，且last_scene就代表最后的胜利一幕)
+        current_scene = self.scene_map.opening_scene()     
+        print('current_scene1= ', current_scene)           
+        last_scene = self.scene_map.next_scene('finished') 
+        print('last_scene= ', last_scene)                  
 
-        while current_scene != last_scene:                 # 16.当"当前一幕"与"最后一幕(即Finished场景)"不相同时
-            next_scene_name = current_scene.enter()        # 17.调用current_scene（即CentralCorridor类的对象）的enter()函数，并将返回值赋给next_scene_name变量
-            print('next_scene_name= ', next_scene_name)    # 18.打印next_scene_name变量，即'death', 'laser_weapon_armory'等
-            current_scene = self.scene_map.next_scene(next_scene_name) # 19.调用scene_map属性(即Map类的a_map对象)的next_scene()函数，并传入下一场景（在scene字典中）所对应的参数
-            print('current_scene2= ', current_scene)       # 20.next_scene()函数会实例化下一场景，并返回val1对象，赋给current_scene变量并打印（即val1、current_scene代表同一对象）
+        while current_scene != last_scene:                 
+            next_scene_name = current_scene.enter()        
+            print('next_scene_name= ', next_scene_name)    
+            current_scene = self.scene_map.next_scene(next_scene_name) 
+            print('current_scene2= ', current_scene)       
 
-        # 21.如上while语句会持续循环，以走向下一个个场景，直至走到'Death'场景或"Finished"场景结束
-        result = current_scene.enter()  # 22.当"当前一幕"与"最后一幕(即Finished场景)"相同时，即玩家成功走到了最后的胜利一幕时，调用Finished类的current_scene对象的enter()函数，打出最终胜利宣言
-        print("result= ", result)       # 23.将Finished类的current_scene对象的enter()函数的返回值赋给result，并打印出来
+        
+        result = current_scene.enter()
+        print("result= ", result)     
 
 
 class Death(Scene):
@@ -216,22 +216,22 @@ class Map(object):
         'finished'              : Finished()
     }
 
-    def __init__(self, start_scene):    # 变量start_scene表示的是开场场景/首场景（不是打开一个场景的意思）
+    def __init__(self, start_scene):   
         self.start_scene = start_scene  
 
     def next_scene(self, scene_name):
-        val1 = Map.scenes.get(scene_name)        # 8.next_scene()函数会调用Map类的scenes属性，并用dict.get(key, default=None)返回字典中指定key的value赋给val1变量，即实例化CentralCorridor类
-        print('val1= ', val1)                    # 9.打印CentralCorridor类的val1对象
-        return val1                              # 10.将val1对象返回给调用next_scene()函数的opening_scene()函数
+        val1 = Map.scenes.get(scene_name)
+        print('val1= ', val1)            
+        return val1                      
         
     def opening_scene(self):
-        val2 = self.next_scene(self.start_scene) # 7.opening_scene()函数会调用next_scene()函数，并将start_scene属性(即central_corridor)作为参数传入
-        print('val2= ', val2)                    # 11.next_scene()函数返回val1对象并赋给val2后，打印val2（即val1与val2代表的是同一对象）
-        return val2                              # 12.将CentralCorridor类的val2对象，返回给调用openning_scene()函数的play()函数
+        val2 = self.next_scene(self.start_scene)
+        print('val2= ', val2)                   
+        return val2                             
 
 
-a_map = Map('central_corridor')                  # 1.实例化Map类，并给该对象的start_scene属性赋值central_corridor
-print('a_map= ', a_map)                          # 2.打印Map类的a_map对象
-a_game = Engine(a_map)                           # 3.实例化Engine类，并给该对象的scene_map属性赋值a_map对象
-print('a_game1= ', a_game)                       # 4.打印Engine类的a_game对象
-a_game.play()                                    # 5.调用a_game对象的play()函数，开始进行游戏
+a_map = Map('central_corridor')                 
+print('a_map= ', a_map)                         
+a_game = Engine(a_map)                          
+print('a_game1= ', a_game)                      
+a_game.play()                                   

@@ -1,4 +1,4 @@
-# 继承的三种使用方式
+# Inheritance
 class Parent(object):
     
     def override(self):
@@ -35,7 +35,7 @@ son.altered()
 
 
 print('\n\n-------------------------------------------------------')
-# 组合的使用方式
+# Composition
 class Other(object):
 
     def override(self):
@@ -50,7 +50,6 @@ class Other(object):
 class Child(object):
 
     def __init__(self):
-        self.property1 = Other()    # 给Child类创建一个属性，并将实例化的Other类赋予该属性
 
     def implicit(self):
         self.property1.implicit()

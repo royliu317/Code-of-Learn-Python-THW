@@ -1,2 +1,2 @@
-txt = open('c:\\users\\roy\\lpthw\\ex15_sample.txt') #注意！path的写法！
+txt = open('c:\\users\\roy\\ex15_sample.txt') # Pay attetion: How the path is writen
 print(txt.read())

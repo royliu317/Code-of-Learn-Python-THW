@@ -25,10 +25,10 @@ amount_of_cheese = int(input("Please input the amount_of_cheese:"))
 amount_of_crackers = int(input("Please input the amount_of_crackers:"))
 cheese_and_crackers(amount_of_cheese, amount_of_crackers)
 
-print("6. And We can combine to one line via keyword arguments") #关键字参数，传入参数的顺序可以与函数定义时的顺序不同（因为都已经指定参数的关键字了）
+print("6. And We can combine to one line via keyword arguments")            # Keywords parameters, the sequence it passes in can be different compares with the ones defined in the function
 cheese_and_crackers(cheese_count = float(input("Please input the amount_of_cheese:")), boxes_of_crackers = float(input("Please input the amount_of_crackers:")))
 
-print("7. Or We can combine to one line via default arguments(默认参数)") #默认参数，传入参数的顺序必须与函数定义时的顺序相同
+print("7. Or We can combine to one line via default arguments(默认参数)")   # # Keywords parameters, t the sequence it passes in must be the same compares with the ones defined in the function
 cheese_and_crackers(int(input("Please input the amount_of_cheese:")), int(input("Please input the amount_of_crackers:")))
 
 print("8. We can use argv to input the amount")

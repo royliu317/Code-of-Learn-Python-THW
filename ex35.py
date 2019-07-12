@@ -20,14 +20,14 @@ def bear_room():
     print("The bear has a bunch of honey.")
     print("The fat bear is in front of another door.")
     print("So how are you going to move the bear, take honey or taunt bear?")
-    while True:   #此处表示循环会永远执行（因为判定条件永远为True），以确保最终能得到正确的回答。相应地，它的代码块及代码块中所调用的函数，其结尾必须用 exit(0)，否则该程序/循环永远不会终止。
+    while True:   
         choice_1 = input("> ")
         if choice_1 == "take honey":
             dead("The bear looks at you then slaps your face off.")
         elif choice_1 == "taunt bear":
             print("The bear has moved from the door.")
             print("You can go throught it now. So waht do you want to do now, open door or taunt bear once again?")
-            while True:   #此处继续用永久循环，以确保第二个问题也能最终得到正确的回答。
+            while True:
                 choice_2 = input("> ")
                 if choice_2 == "open door":
                     gold_room()

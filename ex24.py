@@ -37,6 +37,6 @@ print(f"we'd have {beans} beans, {jars} jars, and {crates} crates.")
 start_point = start_point / 10
 
 print("We can also do that this way:")
-formula = secret_formula(start_point) # secret_formula()返回的对象是List类型，因为它返回了3个变量
+formula = secret_formula(start_point) 
 # this is an easy way to apply a list to a format string
-print("We'd have {} beans, {} jars, and {} crates.".format(*formula)) #在格式化字符串中导入1个list作为参数的方式
+print("We'd have {} beans, {} jars, and {} crates.".format(*formula)) 

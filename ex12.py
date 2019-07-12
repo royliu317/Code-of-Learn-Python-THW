@@ -1,5 +1,5 @@
 age = input("How old are you? ")
-height = input("How tall are you? ") #input()内最多只能放入1个字符串，放入多个则会报错 “TypeError: input expected at most 1 arguments, got 2”
+height = input("How tall are you? ")        # "TypeError: input expected at most 1 arguments, got 2" will raise if more than 1 string is pu inside input()
 weight = input("How much do you weight? ")
 
 print(f"So, you're {age} old, {height} tall and {weight} heavy.")
@@ -15,4 +15,4 @@ weight = input("How much do you weight? ")
 print(f"So, you're {age} old, {height} tall and {weight} heavy.")
 
 
-#调出input帮助信息：python -m pydoc input
+# python -m pydoc input

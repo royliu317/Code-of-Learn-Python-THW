@@ -17,10 +17,10 @@ class Engine(object):
         next_scene_code = None
 
         while next_scene_code != 'finished':                 
-            next_scene_code = current_scene.enter()                   # 进入初始场景开始进行游戏，并根据该场景的游戏结果，告诉引擎下一步应该到哪个场景
-            current_scene = Map.instantiate_scene(next_scene_code)    # 因为地图负责维护完整场景，所以引擎通过地图得到下一场景实例后，通过调用场景实例的enter()方法，进入下一场景继续游戏
+            next_scene_code = current_scene.enter()                 
+            current_scene = Map.instantiate_scene(next_scene_code)  
             
-        current_scene.enter()       # 当while为假（即到达了finished场景）时，进入finished场景，完成整个游戏
+        current_scene.enter()       
 
 
 class Death(Scene):
@@ -197,7 +197,7 @@ class Finished(Scene):
 
 class Map(object):
 
-    scenes = {                                                 # Map类维护的完整场景地图字典
+    scenes = {                                               
         'central_corridor'      : CentralCorridor(),
         'laser_weapon_armory'   : LaserWeaponArmory(),
         'the_bridge'            : TheBridge(),
@@ -206,14 +206,11 @@ class Map(object):
         'finished'              : Finished()
     }
 
-    def instantiate_scene(scene_code):            # 未给该函数设置要传入self参数。因为在Python3中，不使用一个实例而调用一个方法没有问题，只要这个方法不期待一个实例，
-        scene_object = Map.scenes.get(scene_code) # 并且你是通过类而非实例调用该方法（Python3中已经删除了无绑定方法的概念）。对于本例，因为并不需要实例化Map类，所以可用此方式定义该方法，
-        return scene_object                       # 但本例中的其他方法不能这样写，因为它们都是需要通过实例对象进行调用的。
+    def instantiate_scene(scene_code):          
+        scene_object = Map.scenes.get(scene_code)
+        return scene_object                      
         
 
 newgame = Engine()         
 newgame.play()                  
 
-
-# 类中的无绑定方法：https://images2018.cnblogs.com/blog/729758/201808/729758-20180809225746400-246028345.png
-# Python类方法、静态方法与实例方法: https://www.cnblogs.com/blackmatrix/p/5606364.html 

@@ -8,8 +8,8 @@ def main(my_languages):
 
 def print_line(my_line, my_encoding_type, my_error_type):
     next_lang = my_line.strip()
-    raw_bytes = next_lang.encode(encoding = my_encoding_type, errors = my_error_type) #关键字参数传入方式
-    cooked_string = raw_bytes.decode(my_encoding_type, my_error_type) #默认参数传入方式
+    raw_bytes = next_lang.encode(encoding = my_encoding_type, errors = my_error_type) # Keywords parameter
+    cooked_string = raw_bytes.decode(my_encoding_type, my_error_type) 
 
     print(raw_bytes, "<===>", cooked_string)
 
