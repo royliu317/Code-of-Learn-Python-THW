@@ -1,7 +1,6 @@
 # Exercise Codes of Learn Python The Hard Way
 This repository stores my exercise codes of **Learn Python The Hard Way**.
 
-
 # Table Of Contents
 * Exercise 1: A Good First Program
 * Exercise 2: Comments And Pound Characters
@@ -44,7 +43,6 @@ This repository stores my exercise codes of **Learn Python The Hard Way**.
 * Exercise 42: Is-A, Has-A, Objects, and Classes
 * Exercise 43: Gothons From Planet Percal #25
 * Exercise 44: Inheritance Vs. Composition
-
 
 For more info of this book, please refer to:
 -   [Learn Python The Hard Way](https://learnpythonthehardway.org/python3/)
